@@ -1,94 +1,211 @@
 
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+.container {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, 0);
+  z-index: 100000;
 }
 
-.prev, .next {
+body {
+  margin: 0;
+  min-block-size: 100vh;
+  padding: 5vmin;
+  background:rgb(170, 127, 230);
+  color:rgb(0, 0, 0);
+
+}
+
+p{     
+  margin-left: 20px; text-align: center;
+  font-size: 20pt;
+  font-family: fantasy;
+  color:rgb(115, 75, 234);
+}
+
+.label {
+  font-family: 'Garuda', monospace;
+  font-size: 3.5rem; 
+  color: black;
+}
+
+.label-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.label-icon {
+  height: 3.5em;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  background-color: rgb(136, 88, 202);
+  flex-flow: row;
+  justify-content: center;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 4rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.column-button {
+  border-radius: 0.2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em 4em;
+  cursor: pointer;
+  background: rgb(187, 128, 210);
+  color: white
+}
+
+.column-button:hover {
+  border-color: grey;
+  background-color: grey;
+  color: white;
+}
+
+.column-button-pressed {
+  background-color: grey;
+  color: white;
+}
+
+main {
+  background: rgb(194, 133, 215);
+}
+
+img {
+  block-size: auto;
+  max-inline-size: 100%;
+  vertical-align: middle;
+}
+
+.shown-image {
+  width: 35em;
+  height: 35em;
+}
+
+.prev,
+.next {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   cursor: pointer;
   position: absolute;
   top: 50%;
   width: auto;
   padding: 16px;
-  margin-top: -22px;
+  margin-top: -50px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
+  font-size: 20px;
   border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.next {
-  right: 0;
+.prev {
+  left: 34.750%;
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.next {
+  left: 62.6%;
+  border-radius: 3px 0 0 3px;
 }
 
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
+.cursor {
+  cursor: pointer;
+}
+
+.demo {
+  opacity: 0.9;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.mySlides {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.expandedImg {
+  border: 3px solid grey;
+}
+
+.expandedImg:hover {
+  opacity: 1;
+  block-size: auto;
+  max-inline-size: 100%;
+  vertical-align: middle;
+}
+
+.embed {
+  overflow: hidden;
+  padding-block-start: 100%;
+  position: relative;
+}
+
+.embed > * {
+  height: 100%;
+  object-fit: cover;
+  padding: 0.25em;
   position: absolute;
   top: 0;
+  width: 100%;
 }
 
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+.gallery1 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(20, 1fr);
 }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
-.text {
-  color: lightslategrey;
-  font-size: 18px;
-
+.gallery2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(10, 1fr);
 }
 
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+.gallery3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(7, 1fr);
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+.gallery4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px }
+.gallery5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
